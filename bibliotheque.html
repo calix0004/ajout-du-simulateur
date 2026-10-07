@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque Premium - Nexus IT Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+        /* Effet de brillance au survol des cartes premium */
+        .premium-card::before {
+            content: ""; position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.3), transparent);
+            transform: skewX(-20deg); transition: 0.7s; z-index: 10; pointer-events: none;
+        }
+        .premium-card:hover::before { left: 150%; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex selection:bg-indigo-200 overflow-x-hidden">
+
+    <!-- Overlay Mobile -->
+    <div id="mobile-overlay" aria-hidden="true" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-40 hidden md:hidden transition-opacity"></div>
+
+    <!-- ========================================== -->
+    <!-- MENU LATÉRAL                               -->
+    <!-- ========================================== -->
+    <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-72 bg-indigo-900 text-white flex flex-col justify-between shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out md:relative md:translate-x-0 h-screen">
+        <button id="btn-close-sidebar" class="md:hidden absolute top-6 right-6 text-indigo-300 hover:text-white p-1">&times;</button>
+
+        <div>
+            <div class="h-20 flex items-center px-8 border-b border-white/10">
+                <a href="dashboard.html" class="text-2xl font-extrabold tracking-tight hover:text-indigo-200">Nexus IT Labs 🌐</a>
+            </div>
+            
+            <nav class="p-4 space-y-2 mt-4">
+                <a href="dashboard.html" class="flex items-center px-4 py-3 text-indigo-200 hover:bg-white/10 hover:text-white rounded-xl font-medium transition">
+                    <svg class="w-6 h-6 mr-3 opacity-80" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path></svg>
+                    Centre de commandement
+                </a>
+                <a href="bibliotheque.html" aria-current="page" class="flex items-center px-4 py-3 bg-indigo-600 text-white rounded-xl font-semibold shadow-md transition">
+                    <svg class="w-6 h-6 mr-3 opacity-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    Bibliothèque Premium
+                </a>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- ========================================== -->
+    <!-- CONTENU PRINCIPAL                          -->
+    <!-- ========================================== -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto w-full bg-slate-50">
+        
+        <!-- BANDEAU DE RÉASSURANCE SÉCURITÉ -->
+        <div class="bg-slate-900 text-slate-300 text-[10px] md:text-xs font-medium py-2 flex justify-center space-x-6 border-b border-slate-800">
+            <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg> Paiement crypté via Stripe</span>
+            <span class="flex items-center"><svg class="w-3.5 h-3.5 mr-1.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path></svg> Accès à vie Cloud Sécurisé</span>
+        </div>
+
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-30 flex items-center justify-between p-4 md:px-10 h-16 shadow-sm">
+            <div class="flex items-center md:hidden">
+                <button id="btn-open-sidebar" class="text-slate-700 p-1 mr-4 hover:text-indigo-600 focus-visible:outline-none rounded transition">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+
+            <div class="hidden md:flex flex-1 max-w-xl relative">
+                <svg class="absolute left-4 top-2.5 w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                <input type="text" placeholder="Rechercher une compétence..." class="w-full bg-slate-100 text-slate-700 rounded-xl pl-12 pr-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 transition-all">
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="#" class="flex items-center bg-indigo-50 text-indigo-700 font-bold px-4 py-2 rounded-lg text-sm hover:bg-indigo-100 transition">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    Panier (0)
+                </a>
+            </div>
+        </header>
+
+        <div class="p-5 md:p-10 max-w-7xl mx-auto w-full space-y-12">
+            
+            <!-- SECTION AUTEUR : La Touche Personnelle d'Expertise -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm flex flex-col md:flex-row items-center gap-6 relative overflow-hidden">
+                <div class="absolute right-0 top-0 w-64 h-64 bg-indigo-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+                
+                <div class="w-24 h-24 md:w-32 md:h-32 rounded-full border-4 border-white shadow-lg overflow-hidden shrink-0 bg-slate-200">
+                    <!-- Image de profil professionnelle -->
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=256&q=80" alt="Jean Callixte" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="inline-flex items-center space-x-2 bg-indigo-50 px-3 py-1 rounded-full text-[10px] font-bold text-indigo-700 uppercase tracking-wide mb-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                        <span>Expertise Confirmée</span>
+                    </div>
+                    <h1 class="text-2xl md:text-3xl font-extrabold text-slate-900 leading-tight">Jean Callixte</h1>
+                    <p class="text-sm font-semibold text-slate-500 mb-3">Administrateur Réseau & Sécurité Cloud</p>
+                    <p class="text-sm text-slate-600 max-w-3xl leading-relaxed">
+                        "J'ai conçu ces 100+ ressources pour combler le vide entre la théorie académique et la réalité des infrastructures d'entreprise. De la virtualisation Azure à la gestion de projets complexes sur Google Cloud, accédez aux méthodes exactes que j'utilise au quotidien pour sécuriser et déployer des architectures robustes."
+                    </p>
+                </div>
+            </div>
+
+            <!-- SECTION : MASTERCLASSES VIDÉOS -->
+            <section>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-slate-800 flex items-center">
+                        <span class="p-2 bg-rose-100 text-rose-600 rounded-lg mr-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg></span>
+                        Masterclasses Vidéos
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Vidéo Payante (Aperçu) -->
+                    <div class="premium-card bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden group flex flex-col relative">
+                        <div class="relative h-48 bg-slate-900 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=80" alt="Cloud" class="w-full h-full object-cover opacity-60">
+                            <!-- Overlay Glassmorphism moderne -->
+                            <div class="absolute inset-0 bg-slate-900/30 backdrop-blur-[3px] flex items-center justify-center transition-all duration-300 group-hover:backdrop-blur-sm">
+                                <div class="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20 shadow-xl">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <span class="text-[10px] font-bold text-rose-600 uppercase tracking-wider mb-1">Architecture Azure</span>
+                            <h3 class="font-bold text-slate-900 text-lg mb-2 leading-tight">Déploiement Cloud Sécurisé de A à Z</h3>
+                            <p class="text-sm text-slate-500 mb-4 line-clamp-2">Configurez des environnements virtuels d'entreprise. Best practices de sécurité incluses.</p>
+                            
+                            <div class="mt-auto flex flex-col space-y-3">
+                                <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                                    <span class="text-2xl font-extrabold text-slate-900">45€</span>
+                                    <button class="text-xs font-semibold text-indigo-600 flex items-center hover:underline">
+                                        <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                        Aperçu gratuit (3 min)
+                                    </button>
+                                </div>
+                                <button class="btn-stripe w-full bg-slate-900 hover:bg-indigo-600 text-white font-bold py-2.5 rounded-xl transition flex justify-center items-center">
+                                    Débloquer la formation
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECTION : COLLECTION E-BOOKS -->
+            <section>
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-bold text-slate-800 flex items-center">
+                        <span class="p-2 bg-indigo-100 text-indigo-600 rounded-lg mr-3"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg></span>
+                        Manuels & E-Books (La Collection)
+                    </h2>
+                </div>
+
+                <div class="flex overflow-x-auto gap-6 pb-6 hide-scroll snap-x">
+                    
+                    <!-- E-book 1 -->
+                    <div class="premium-card flex-none w-72 bg-white rounded-2xl border border-slate-200 shadow-sm p-4 snap-start relative overflow-hidden">
+                        <div class="relative h-64 w-full mb-4 bg-slate-100 rounded-xl overflow-hidden flex justify-center items-center border border-slate-200 shadow-inner">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=400&q=80" alt="Cover" class="w-full h-full object-cover opacity-90">
+                            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+                            <h3 class="absolute bottom-4 left-4 right-4 text-white font-extrabold text-lg leading-tight">Sécuriser son infrastructure réseau</h3>
+                        </div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] bg-slate-100 text-slate-600 px-2 py-1 rounded font-bold">145 Pages PDF</span>
+                            <a href="#" class="text-[10px] text-indigo-600 font-bold hover:underline">Lire un extrait</a>
+                        </div>
+                        
+                        <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-slate-400 line-through">24.00€</span>
+                                <span class="text-xl font-extrabold text-slate-900">14.99€</span>
+                            </div>
+                            <button class="btn-stripe bg-indigo-50 text-indigo-700 hover:bg-indigo-600 hover:text-white font-bold py-2 px-4 rounded-xl transition">
+                                Acheter
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Script de simulation Stripe -->
+    <script>
+        const boutonsStripe = document.querySelectorAll('.btn-stripe');
+        
+        boutonsStripe.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const textOriginal = btn.innerHTML;
+                
+                // Effet de chargement
+                btn.innerHTML = `<svg class="animate-spin h-5 w-5 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>`;
+                
+                setTimeout(() => {
+                    alert("Redirection sécurisée vers la passerelle de paiement (Simulation).\n\nDans la version finale, ceci ouvrira la fenêtre de paiement Stripe pour valider la transaction par carte bancaire. Une fois validé, Firebase débloquera l'accès à ce contenu sur le compte de l'utilisateur.");
+                    btn.innerHTML = textOriginal;
+                }, 800);
+            });
+        });
+    </script>
+</body>
+</html>
