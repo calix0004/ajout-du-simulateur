@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nexus IT Labs - Formations IT & Réseaux pour Débutants</title>
+
+    <!-- Chargement de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Police Inter pour un rendu propre et professionnel -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      .clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 antialiased">
+    <!-- Barre B2B (Noir) - Sans la rubrique gouvernement -->
+    <nav
+      class="bg-[#1f1f1f] text-white text-sm font-semibold hidden md:block"
+      aria-label="Navigation Business"
+    >
+      <div class="max-w-7xl mx-auto px-6 flex items-center h-12">
+        <ul class="flex space-x-8 h-full">
+          <li class="h-full flex items-center border-b-4 border-white pt-1">
+            <a
+              href="#"
+              class="text-white hover:text-white"
+              aria-label="Pour les personnes"
+              >Pour les personnes</a
+            >
+          </li>
+          <li
+            class="h-full flex items-center pt-1 border-b-4 border-transparent hover:border-gray-400"
+          >
+            <a
+              href="#entreprise"
+              class="text-gray-300 hover:text-white transition"
+              aria-label="Pour les entreprises"
+              >Pour les entreprises</a
+            >
+          </li>
+          <li
+            class="h-full flex items-center pt-1 border-b-4 border-transparent hover:border-gray-400"
+          >
+            <a
+              href="#universites"
+              class="text-gray-300 hover:text-white transition"
+              aria-label="Pour les universités"
+              >Pour les universités</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Navigation Principale -->
+    <header
+      class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between"
+      >
+        <div class="flex items-center space-x-6 w-full lg:w-auto">
+          <!-- Logo -->
+          <a
+            href="#"
+            class="text-2xl font-extrabold text-blue-700 flex items-center gap-2"
+            aria-label="Accueil Nexus IT Labs"
+          >
+            nexus<span class="text-gray-900">IT</span
+            ><span class="text-blue-500">labs</span> 🌐
+          </a>
+
+          <!-- Bouton Explorer -->
+          <button
+            class="hidden lg:flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded font-semibold transition"
+            aria-haspopup="true"
+          >
+            Explorer
+            <svg
+              class="w-4 h-4 ml-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </button>
+
+          <!-- Barre de recherche -->
+          <div class="hidden lg:flex flex-1 max-w-xl relative">
+            <input
+              type="text"
+              placeholder="Que voulez-vous apprendre ?"
+              class="w-full border border-gray-300 rounded-full py-3 px-5 pr-12 focus:outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-600"
+              aria-label="Champ de recherche"
+            />
+            <button
+              class="absolute right-1 top-1 bg-blue-600 rounded-full p-2 text-white hover:bg-blue-700 transition"
+              aria-label="Rechercher"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Boutons d'authentification -->
+        <div class="hidden md:flex items-center space-x-4">
+          <a
+            href="#"
+            class="text-gray-700 font-semibold hover:text-blue-600 transition"
+            >Connexion</a
+          >
+          <a
+            href="inscription.html"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded font-semibold shadow-sm transition"
+            >S'inscrire gratuitement</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Section Hero -->
+      <section class="relative bg-gray-900 text-white overflow-hidden">
+        <div class="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+            alt="Personne codant sur un ordinateur portable"
+            class="w-full h-full object-cover opacity-30"
+          />
+        </div>
+        <div
+          class="relative max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col items-start"
+        >
+          <span
+            class="bg-blue-600 text-white text-sm font-bold px-3 py-1 rounded mb-4 uppercase tracking-wider"
+            >Nouveau départ</span
+          >
+          <h1
+            class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight max-w-3xl"
+          >
+            Bienvenue aux débutants et apprenants ! <br />
+            <span class="text-blue-400">Maîtrisez l'IT et les Réseaux.</span>
+          </h1>
+          <p class="text-xl text-gray-300 mb-8 max-w-2xl font-light">
+            Construit depuis l'Afrique pour le monde. Accédez à des laboratoires
+            virtuels, apprenez pas-à-pas et passez de simple curieux à ingénieur
+            recherché.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <button
+              class="bg-blue-600 text-white px-8 py-4 rounded font-bold text-lg hover:bg-blue-500 shadow-lg transition w-full sm:w-auto text-center"
+            >
+              Commencer mon parcours
+            </button>
+            <button
+              class="bg-white text-gray-900 px-8 py-4 rounded font-bold text-lg hover:bg-gray-100 shadow-lg transition w-full sm:w-auto text-center"
+            >
+              Découvrir le catalogue
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section Recommandations de l'Expert (Catalogue) -->
+      <section class="max-w-7xl mx-auto px-6 py-20 bg-gray-50">
+        <div class="mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-3">
+            Recommandations de l'Expert 💡
+          </h2>
+          <p class="text-gray-600 text-lg">
+            Acquérez des compétences concrètes grâce à nos parcours adaptés aux
+            besoins réels des entreprises d'aujourd'hui.
+          </p>
+        </div>
+
+        <!-- Grille de cours (CSS Grid) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Cours 1 : Simulation GNS3 -->
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group border border-gray-100"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Baies de serveurs réseau"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-white text-blue-800 text-xs font-bold px-2.5 py-1 rounded shadow"
+                >Pratique</span
+              >
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="font-bold text-xl text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
+              >
+                Simulation Réseau avec GNS3
+              </h3>
+              <p class="text-sm text-gray-600 mb-4 clamp-2">
+                Concevez, configurez et testez des architectures réseau
+                complexes virtuelles avant de les déployer dans le monde réel.
+              </p>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >Routage</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >Topologie</span
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-between border-t border-gray-100 pt-4"
+                >
+                  <span class="text-sm font-semibold text-gray-800"
+                    >Débutant</span
+                  >
+                  <span class="text-sm font-bold text-blue-600">Gratuit</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cours 2 : Cloud Fundamentals -->
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group border border-gray-100"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Réseau planétaire connecté"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-white text-blue-800 text-xs font-bold px-2.5 py-1 rounded shadow"
+                >Théorie & Lab</span
+              >
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="font-bold text-xl text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
+              >
+                Fondamentaux du Cloud avec Azure
+              </h3>
+              <p class="text-sm text-gray-600 mb-4 clamp-2">
+                Démystifiez le Cloud Computing. Apprenez à déployer vos
+                premières machines virtuelles et bases de données sur Microsoft
+                Azure.
+              </p>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >IaaS</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >Microsoft Azure</span
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-between border-t border-gray-100 pt-4"
+                >
+                  <span class="text-sm font-semibold text-gray-800"
+                    >Débutant</span
+                  >
+                  <span class="text-sm font-bold text-blue-600">Premium</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cours 3 : CI/CD -->
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group border border-gray-100"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Code source sur un écran d'ordinateur"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-white text-blue-800 text-xs font-bold px-2.5 py-1 rounded shadow"
+                >Projet Guidé</span
+              >
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="font-bold text-xl text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
+              >
+                Déploiement Web CI/CD & Netlify
+              </h3>
+              <p class="text-sm text-gray-600 mb-4 clamp-2">
+                Automatisez la mise en ligne de vos projets. Liez GitHub à
+                Netlify pour un pipeline de déploiement continu professionnel.
+              </p>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >DevOps</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >Automatisation</span
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-between border-t border-gray-100 pt-4"
+                >
+                  <span class="text-sm font-semibold text-gray-800"
+                    >Intermédiaire</span
+                  >
+                  <span class="text-sm font-bold text-blue-600">Gratuit</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Cours 4 : Cybersécurité -->
+          <article
+            class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col group border border-gray-100"
+          >
+            <div class="relative h-48 overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Cadenas numérique symbolisant la cybersécurité"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-white text-blue-800 text-xs font-bold px-2.5 py-1 rounded shadow"
+                >Certificat</span
+              >
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <h3
+                class="font-bold text-xl text-gray-900 mb-2 group-hover:text-blue-600 transition-colors"
+              >
+                Cybersécurité & Gestion de Pare-feu
+              </h3>
+              <p class="text-sm text-gray-600 mb-4 clamp-2">
+                Protégez l'infrastructure. Maîtrisez les règles de pare-feu, la
+                détection d'intrusions et l'analyse de paquets suspects.
+              </p>
+              <div class="mt-auto">
+                <div class="flex flex-wrap gap-2 mb-4">
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >Sécurité</span
+                  >
+                  <span
+                    class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded"
+                    >Firewall</span
+                  >
+                </div>
+                <div
+                  class="flex items-center justify-between border-t border-gray-100 pt-4"
+                >
+                  <span class="text-sm font-semibold text-gray-800"
+                    >Avancé</span
+                  >
+                  <span class="text-sm font-bold text-blue-600">Premium</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <div class="mt-12 text-center">
+          <button
+            class="bg-white border-2 border-blue-600 text-blue-600 font-bold px-8 py-3 rounded hover:bg-blue-50 transition"
+            aria-label="Voir tous les cours"
+          >
+            Afficher l'intégralité du catalogue
+          </button>
+        </div>
+      </section>
+
+      <!-- Section : Pour les Entreprises (50/50 - Texte à gauche, Image à droite) -->
+      <section id="entreprise" class="bg-white py-24 border-t border-gray-200">
+        <div
+          class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+        >
+          <div class="order-2 md:order-1">
+            <div
+              class="uppercase tracking-widest text-sm font-bold text-blue-600 mb-3"
+            >
+              Nexus IT Labs pour les Entreprises
+            </div>
+            <h2
+              class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight"
+            >
+              Améliorez les compétences techniques de vos équipes
+            </h2>
+            <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+              Accélérez votre transition numérique. Formez vos administrateurs
+              système et ingénieurs cloud avec nos environnements sandbox
+              ultra-sécurisés, sans risquer votre propre infrastructure. Suivez
+              la montée en compétence de votre équipe via des tableaux de bord
+              analytiques détaillés.
+            </p>
+            <ul class="space-y-4 mb-8 text-gray-700 font-medium">
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-6 h-6 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                Parcours B2B personnalisés selon votre pile technologique.
+              </li>
+              <li class="flex items-center gap-3">
+                <svg
+                  class="w-6 h-6 text-green-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  ></path>
+                </svg>
+                Intégration transparente et gestion de licences simplifiée.
+              </li>
+            </ul>
+            <button
+              class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded font-bold transition shadow-lg w-full sm:w-auto"
+            >
+              Découvrir l'offre Entreprise
+            </button>
+          </div>
+          <div class="order-1 md:order-2">
+            <img
+              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Équipe technique collaborant en entreprise"
+              class="rounded-2xl shadow-2xl object-cover h-[500px] w-full"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Section : Pour les Universités (50/50 - Image à gauche, Texte à droite) -->
+      <section id="universites" class="bg-indigo-50 py-24">
+        <div
+          class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center"
+        >
+          <div>
+            <img
+              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+              alt="Étudiants universitaires diplômés"
+              class="rounded-2xl shadow-2xl object-cover h-[500px] w-full"
+            />
+          </div>
+          <div>
+            <div
+              class="uppercase tracking-widest text-sm font-bold text-indigo-600 mb-3"
+            >
+              Nexus IT Labs pour le Campus
+            </div>
+            <h2
+              class="text-3xl md:text-5xl font-extrabold text-gray-900 mb-6 leading-tight"
+            >
+              Intégrez l'industrie dans vos cursus académiques
+            </h2>
+            <p class="text-gray-700 text-lg mb-8 leading-relaxed">
+              Comblez le fossé entre la théorie académique et les exigences du
+              marché. Nous nous associons aux universités pour fournir des
+              laboratoires virtuels clés en main et des certifications qui
+              rendent vos étudiants immédiatement employables dès l'obtention de
+              leur diplôme.
+            </p>
+            <div
+              class="bg-white p-8 rounded-xl shadow-sm border border-indigo-100 mb-8 relative"
+            >
+              <div class="absolute -top-4 -left-4 text-indigo-200">
+                <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
+                  />
+                </svg>
+              </div>
+              <p class="italic text-gray-700 mb-4 font-medium relative z-10">
+                "L'intégration des simulateurs Nexus a radicalement changé notre
+                approche pédagogique. Nos étudiants déploient des serveurs réels
+                au lieu de simplement lire des schémas."
+              </p>
+              <p class="font-bold text-gray-900 text-sm">
+                — Partenariat Académique
+              </p>
+            </div>
+            <button
+              class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded font-bold transition shadow-lg w-full sm:w-auto"
+            >
+              Devenir une université partenaire
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="bg-white border-t border-gray-200 pt-16 pb-8">
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12"
+      >
+        <div>
+          <h4 class="font-bold text-gray-900 mb-4 text-lg">Nexus IT Labs</h4>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >À propos de nous</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Notre mission</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition">Carrières</a>
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Catalogue complet</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-gray-900 mb-4 text-lg">Communauté</h4>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Espace Apprenants</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Partenaires techniques</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Blog et Tutoriels</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Forum d'entraide</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-gray-900 mb-4 text-lg">Légal</h4>
+          <ul class="space-y-3 text-sm text-gray-600">
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Conditions d'utilisation</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Politique de confidentialité</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Accessibilité</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-blue-600 transition"
+                >Plan du site</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-gray-900 mb-4 text-lg">
+            Application Mobile
+          </h4>
+          <p class="text-sm text-gray-600 mb-4">
+            Apprenez partout, tout le temps. Bientôt disponible.
+          </p>
+          <div class="flex flex-col space-y-3">
+            <!-- Placeholders stylisés pour les badges d'applications -->
+            <div
+              class="bg-black text-white rounded-lg flex items-center px-4 py-2 w-40 cursor-pointer hover:bg-gray-800 transition border border-gray-700"
+            >
+              <div class="mr-2 text-2xl">🍏</div>
+              <div class="text-left">
+                <div class="text-[10px] leading-tight">Télécharger dans l'</div>
+                <div class="text-sm font-semibold leading-tight">App Store</div>
+              </div>
+            </div>
+            <div
+              class="bg-black text-white rounded-lg flex items-center px-4 py-2 w-40 cursor-pointer hover:bg-gray-800 transition border border-gray-700"
+            >
+              <div class="mr-2 text-2xl">▶️</div>
+              <div class="text-left">
+                <div class="text-[10px] leading-tight">DISPONIBLE SUR</div>
+                <div class="text-sm font-semibold leading-tight">
+                  Google Play
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-7xl mx-auto px-6 pt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between text-sm text-gray-500"
+      >
+        <p class="font-medium">
+          © 2026 Nexus IT Labs Inc. Tous droits réservés. Construit avec passion
+          à Douala.
+        </p>
+        <div class="flex space-x-6 mt-4 md:mt-0">
+          <a
+            href="#"
+            class="hover:text-blue-600 transition"
+            aria-label="Facebook"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+            class="hover:text-blue-600 transition"
+            aria-label="LinkedIn"
+          >
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

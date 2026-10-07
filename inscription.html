@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline'; img-src 'self' https://images.unsplash.com;">
+    <title>Authentification - Nexus IT Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-slate-800 font-sans min-h-screen flex selection:bg-indigo-200">
+
+    <!-- Colonne Gauche : Image immersive et Branding -->
+    <div class="hidden lg:flex lg:w-1/2 relative flex-col justify-between p-12 text-white overflow-hidden shadow-2xl z-10">
+        <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=2000&q=80" alt="Datacenter professionnel" class="absolute inset-0 w-full h-full object-cover object-center z-0">
+        <div class="absolute inset-0 bg-indigo-900/85 z-10"></div>
+        
+        <div class="relative z-20">
+            <a href="index.html" class="text-3xl font-extrabold tracking-tight hover:text-indigo-200 transition">Nexus IT Labs 🌐</a>
+        </div>
+        
+        <div class="relative z-20 max-w-md">
+            <!-- Nouveau Slogan Captivant -->
+            <h2 class="text-4xl font-bold mb-8 leading-tight">Domptez la complexité. <br><span class="text-indigo-300">Bâtissez le Cloud de demain.</span></h2>
+            
+            <ul class="space-y-4 text-white text-lg font-medium">
+                <!-- Accordéons inchangés -->
+                <li class="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-sm overflow-hidden transition-all duration-300">
+                    <button type="button" class="accordion-btn w-full flex items-center justify-between p-4 text-left focus:outline-none hover:bg-white/5 transition-colors">
+                        <div class="flex items-center">
+                            <span class="mr-4 text-2xl">💻</span> Laboratoires virtuels interactifs
+                        </div>
+                        <span class="icon-chevron transition-transform duration-300 text-sm">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-4 pb-4 text-sm text-indigo-100/90 leading-relaxed pl-14">
+                        Pratiquez directement depuis votre navigateur. Configurez des routeurs et des switchs complexes sans aucun risque.
+                    </div>
+                </li>
+                <li class="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-sm overflow-hidden transition-all duration-300">
+                    <button type="button" class="accordion-btn w-full flex items-center justify-between p-4 text-left focus:outline-none hover:bg-white/5 transition-colors">
+                        <div class="flex items-center">
+                            <span class="mr-4 text-2xl">🛡️</span> Sécurité et architecture Cloud
+                        </div>
+                        <span class="icon-chevron transition-transform duration-300 text-sm">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-4 pb-4 text-sm text-indigo-100/90 leading-relaxed pl-14">
+                        Comprenez les modèles IaaS, PaaS, SaaS et apprenez à concevoir des infrastructures résilientes et sécurisées.
+                    </div>
+                </li>
+                <li class="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 shadow-sm overflow-hidden transition-all duration-300">
+                    <button type="button" class="accordion-btn w-full flex items-center justify-between p-4 text-left focus:outline-none hover:bg-white/5 transition-colors">
+                        <div class="flex items-center">
+                            <span class="mr-4 text-2xl">🚀</span> De débutant absolu à expert
+                        </div>
+                        <span class="icon-chevron transition-transform duration-300 text-sm">▼</span>
+                    </button>
+                    <div class="accordion-content hidden px-4 pb-4 text-sm text-indigo-100/90 leading-relaxed pl-14">
+                        Une pédagogie basée sur des analogies simples pour vous guider pas à pas vers la maîtrise technique.
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+        <!-- Pied de page globalisé -->
+        <div class="relative z-20 text-sm text-indigo-200 font-medium tracking-wide">
+            © 2026 Nexus IT Labs. Propulsez votre carrière IT.
+        </div>
+    </div>
+
+    <!-- Colonne Droite : Formulaires interactifs -->
+    <div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12 relative z-0 overflow-y-auto">
+        <div class="max-w-md w-full">
+            
+            <img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80" alt="Datacenter" class="w-full h-48 object-cover rounded-2xl mb-8 shadow-lg lg:hidden">
+
+            <!-- ========================================== -->
+            <!-- VUE : INSCRIPTION                          -->
+            <!-- ========================================== -->
+            <div id="vue-inscription">
+                <div class="mb-8 text-center lg:text-left">
+                    <h1 class="text-3xl font-extrabold text-slate-900 mb-3">Créez votre compte</h1>
+                    <p class="text-slate-500">Rejoignez la prochaine génération d'experts système et réseau.</p>
+                </div>
+
+                <form id="form-inscription" class="space-y-4" novalidate>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label for="prenom" class="block text-sm font-semibold text-slate-700 mb-1">Prénom</label>
+                            <input type="text" id="prenom" required class="w-full p-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900">
+                        </div>
+                        <div>
+                            <label for="nom" class="block text-sm font-semibold text-slate-700 mb-1">Nom</label>
+                            <input type="text" id="nom" required class="w-full p-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="email-inc" class="block text-sm font-semibold text-slate-700 mb-1">Adresse e-mail</label>
+                        <input type="email" id="email-inc" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="w-full p-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900">
+                    </div>
+
+                    <div>
+                        <label for="profil" class="block text-sm font-semibold text-slate-700 mb-1">Objectif principal</label>
+                        <select id="profil" required class="w-full p-3 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900 cursor-pointer">
+                            <option value="" disabled selected>Sélectionnez votre profil...</option>
+                            <option value="apprenant">🎓 Apprenant / Débutant</option>
+                            <option value="entreprise">🏢 Entreprise (Formation B2B)</option>
+                            <option value="universite">🏛️ Université / École</option>
+                        </select>
+                    </div>
+
+                    <div class="relative">
+                        <label for="password-inc" class="block text-sm font-semibold text-slate-700 mb-1">Mot de passe sécurisé</label>
+                        <input type="password" id="password-inc" required minlength="8" class="w-full p-3 pr-12 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900">
+                        <button type="button" class="toggle-password absolute right-4 top-9 text-slate-400 hover:text-indigo-600 transition" aria-label="Afficher le mot de passe">👁️</button>
+                        
+                        <!-- Indicateur de force du mot de passe -->
+                        <div class="mt-2 flex gap-1 h-1 w-full rounded-full overflow-hidden bg-slate-100">
+                            <div id="pwd-strength-1" class="h-full w-1/3 transition-colors duration-300"></div>
+                            <div id="pwd-strength-2" class="h-full w-1/3 transition-colors duration-300"></div>
+                            <div id="pwd-strength-3" class="h-full w-1/3 transition-colors duration-300"></div>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start pt-2">
+                        <input type="checkbox" id="rgpd" required class="mt-1 w-4 h-4 text-indigo-600 border-slate-300 rounded focus:ring-indigo-500 cursor-pointer">
+                        <label for="rgpd" class="ml-3 text-sm text-slate-600 cursor-pointer">
+                            J'accepte les <button type="button" id="btn-open-cgu" class="text-indigo-600 font-semibold hover:underline">conditions d'utilisation</button>.
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-indigo-600 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-indigo-700 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                        Créer mon compte
+                    </button>
+                </form>
+
+                <!-- Section Social Login (OAuth) -->
+                <div class="mt-6">
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-slate-200"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-slate-400 font-medium">Ou continuer avec</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 grid grid-cols-2 gap-3">
+                        <button type="button" class="w-full flex items-center justify-center py-2.5 px-4 border border-slate-200 rounded-xl shadow-sm bg-white text-sm font-semibold text-slate-700 hover:bg-slate-50 transition">
+                            <svg class="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/>
+                            </svg>
+                            Google
+                        </button>
+                        <button type="button" class="w-full flex items-center justify-center py-2.5 px-4 border border-slate-200 rounded-xl shadow-sm bg-white text-sm font-semibold text-slate-700 hover:bg-slate-50 transition">
+                            <svg class="h-5 w-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/>
+                            </svg>
+                            GitHub
+                        </button>
+                    </div>
+                </div>
+
+                <p class="text-center text-sm text-slate-500 mt-6">
+                    Vous avez déjà un compte ? <button type="button" id="btn-vers-connexion" class="text-indigo-600 font-bold hover:underline transition">Connectez-vous</button>
+                </p>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- VUE : CONNEXION (Cachée par défaut)        -->
+            <!-- ========================================== -->
+            <div id="vue-connexion" class="hidden">
+                <div class="mb-8 text-center lg:text-left">
+                    <h1 class="text-3xl font-extrabold text-slate-900 mb-3">Bon retour ! 👋</h1>
+                    <p class="text-slate-500">Connectez-vous pour reprendre vos laboratoires.</p>
+                </div>
+
+                <form id="form-connexion" class="space-y-5" novalidate>
+                    <div>
+                        <label for="email-conn" class="block text-sm font-semibold text-slate-700 mb-1">Adresse e-mail</label>
+                        <input type="email" id="email-conn" required class="w-full p-3.5 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900">
+                    </div>
+
+                    <div class="relative">
+                        <div class="flex justify-between items-center mb-1">
+                            <label for="password-conn" class="block text-sm font-semibold text-slate-700">Mot de passe</label>
+                            <a href="#" class="text-xs text-indigo-600 font-semibold hover:underline">Oublié ?</a>
+                        </div>
+                        <input type="password" id="password-conn" required class="w-full p-3.5 pr-12 rounded-xl border border-slate-200 focus:border-indigo-600 focus:ring-2 focus:ring-indigo-100 outline-none transition bg-slate-50 hover:bg-white text-slate-900">
+                        <button type="button" class="toggle-password absolute right-4 top-9 text-slate-400 hover:text-indigo-600 transition">👁️</button>
+                    </div>
+
+                    <button type="submit" class="w-full bg-slate-900 text-white font-bold py-3.5 px-6 rounded-xl hover:bg-slate-800 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                        Se connecter
+                    </button>
+                </form>
+
+                <p class="text-center text-sm text-slate-500 mt-8">
+                    Nouveau sur Nexus IT Labs ? <button type="button" id="btn-vers-inscription" class="text-indigo-600 font-bold hover:underline transition">Créer un compte</button>
+                </p>
+            </div>
+
+            <!-- Messages d'état -->
+            <div id="message-erreur" class="hidden mt-6 text-sm font-medium text-rose-600 bg-rose-50 p-4 rounded-xl border border-rose-100 text-center">
+                ⚠️ Veuillez remplir correctement tous les champs requis.
+            </div>
+            <div id="message-succes" class="hidden mt-8 text-center bg-emerald-50 p-8 rounded-2xl border border-emerald-100">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm">✨</div>
+                <h3 class="text-xl font-bold text-slate-900 mb-2">Authentification réussie !</h3>
+                <p class="text-slate-600">Chargement de votre espace de travail...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale CGU inchangée (masquée par défaut) -->
+    <div id="modal-cgu" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" id="bg-close-cgu"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[80vh] flex flex-col overflow-hidden">
+            <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <h3 class="text-xl font-bold text-slate-900">Conditions d'utilisation (CGU)</h3>
+                <button type="button" id="btn-close-cgu" class="text-slate-400 hover:text-rose-500 transition text-2xl leading-none">&times;</button>
+            </div>
+            <div class="p-6 overflow-y-auto text-slate-600 space-y-4 text-sm">
+                <p class="font-semibold text-slate-800">Bienvenue sur Nexus IT Labs.</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>Objectif pédagogique :</strong> Laboratoires exclusifs à la formation.</li>
+                    <li><strong>Données personnelles :</strong> Stockage sécurisé, aucune revente.</li>
+                    <li><strong>Propriété intellectuelle :</strong> Reproduction interdite hors plateforme.</li>
+                </ul>
+            </div>
+            <div class="p-4 border-t border-slate-100 text-right bg-slate-50">
+                <button type="button" id="btn-accept-cgu" class="bg-indigo-600 text-white font-bold py-2 px-6 rounded-lg hover:bg-indigo-700 transition">J'ai compris</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gestion des accordéons
+        document.querySelectorAll('.accordion-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('.icon-chevron');
+                content.classList.toggle('hidden');
+                icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+            });
+        });
+
+        // Gestion mots de passe (Visibilité)
+        document.querySelectorAll('.toggle-password').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const input = this.previousElementSibling;
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.textContent = type === 'password' ? '🔒' : '👁️';
+            });
+        });
+
+        // NOUVEAU : Evaluateur de force de mot de passe
+        const pwdInput = document.getElementById('password-inc');
+        const str1 = document.getElementById('pwd-strength-1');
+        const str2 = document.getElementById('pwd-strength-2');
+        const str3 = document.getElementById('pwd-strength-3');
+
+        pwdInput.addEventListener('input', (e) => {
+            const val = e.target.value;
+            let strength = 0;
+            if(val.length >= 8) strength++;
+            if(val.match(/[A-Z]/) && val.match(/[0-9]/)) strength++;
+            if(val.match(/[^a-zA-Z\d]/)) strength++;
+
+            str1.className = `h-full w-1/3 transition-colors duration-300 ${strength >= 1 ? (strength === 1 ? 'bg-rose-500' : (strength === 2 ? 'bg-amber-400' : 'bg-emerald-500')) : 'bg-transparent'}`;
+            str2.className = `h-full w-1/3 transition-colors duration-300 ${strength >= 2 ? (strength === 2 ? 'bg-amber-400' : 'bg-emerald-500') : 'bg-transparent'}`;
+            str3.className = `h-full w-1/3 transition-colors duration-300 ${strength >= 3 ? 'bg-emerald-500' : 'bg-transparent'}`;
+        });
+
+        // Vues Inscription/Connexion
+        const vueInscription = document.getElementById('vue-inscription');
+        const vueConnexion = document.getElementById('vue-connexion');
+        const btnVersConnexion = document.getElementById('btn-vers-connexion');
+        const btnVersInscription = document.getElementById('btn-vers-inscription');
+        const msgErreur = document.getElementById('message-erreur');
+
+        function switchView(showView, hideView) {
+            hideView.classList.add('hidden');
+            showView.classList.remove('hidden');
+            msgErreur.classList.add('hidden');
+        }
+
+        btnVersConnexion.addEventListener('click', () => switchView(vueConnexion, vueInscription));
+        btnVersInscription.addEventListener('click', () => switchView(vueInscription, vueConnexion));
+
+        // Formulaires & Modale CGU
+        const formInscription = document.getElementById('form-inscription');
+        const formConnexion = document.getElementById('form-connexion');
+        const msgSucces = document.getElementById('message-succes');
+        
+        function handleFormSubmit(e, form) {
+            e.preventDefault();
+            if (!form.checkValidity()) {
+                msgErreur.classList.remove('hidden'); return;
+            }
+            msgErreur.classList.add('hidden');
+            vueInscription.classList.add('hidden');
+            vueConnexion.classList.add('hidden');
+            msgSucces.classList.remove('hidden');
+        }
+
+        formInscription.addEventListener('submit', (e) => handleFormSubmit(e, formInscription));
+        formConnexion.addEventListener('submit', (e) => handleFormSubmit(e, formConnexion));
+
+        const modalCgu = document.getElementById('modal-cgu');
+        const btnOpenCgu = document.getElementById('btn-open-cgu');
+        const btnCloseCgu = document.getElementById('btn-close-cgu');
+        const bgCloseCgu = document.getElementById('bg-close-cgu');
+        const btnAcceptCgu = document.getElementById('btn-accept-cgu');
+        const checkboxRgpd = document.getElementById('rgpd');
+
+        btnOpenCgu.addEventListener('click', () => modalCgu.classList.remove('hidden'));
+        btnCloseCgu.addEventListener('click', () => modalCgu.classList.add('hidden'));
+        bgCloseCgu.addEventListener('click', () => modalCgu.classList.add('hidden'));
+        btnAcceptCgu.addEventListener('click', () => { modalCgu.classList.add('hidden'); checkboxRgpd.checked = true; });
+    </script>
+</body>
+</html>
